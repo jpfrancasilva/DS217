@@ -1,25 +1,25 @@
 
 public class Fita {
 	public static final int NORMAL = 0;
-	public static final int LANÇAMENTO = 1;
+	public static final int LANCAMENTO = 1;
 	public static final int INFANTIL = 2;
-	private String título;
-	private int códigoDePreço;
+	private String titulo;
+	private int CodigoDePreco;
 
-	public Fita(String título, int códigoDePreço) {
-		this.título = título;
-		this.códigoDePreço = códigoDePreço;
+	public Fita(String titulo, int CodigoDePreco) {
+		this.titulo = titulo;
+		this.CodigoDePreco = CodigoDePreco;
 	}
 
-	public String getTítulo() {
-		return título;
+	public String gettitulo() {
+		return titulo;
 	}
 
-	public int getCódigoDePreço() {
-		return códigoDePreço;
+	public int getCodigoDePreco() {
+		return CodigoDePreco;
 	}
 
-	public void setCódigoDePreço(int códigoDePreço) {
-		this.códigoDePreço = códigoDePreço;
+	public void setCodigoDePreco(int CodigoDePreco) {
+		this.CodigoDePreco = CodigoDePreco;
 	}
 }

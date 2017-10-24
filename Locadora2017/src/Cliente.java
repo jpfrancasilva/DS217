@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Cliente {
 	private String nome;
-	private Collection fitasAlugadas = new Vector();
+	private Collection<Aluguel> fitasAlugadas = new Vector<Aluguel>();
 
 	public Cliente(String nome) {
 		this.nome = nome;
@@ -22,20 +22,20 @@ public class Cliente {
 		final String fimDeLinha = System.getProperty("line.separator");
 		double valorTotal = 0.0;
 		int pontosDeAlugadorFrequente = 0;
-		Iterator alugueis = fitasAlugadas.iterator();
+		Iterator<Aluguel> alugueis = fitasAlugadas.iterator();
 		String resultado = "Registro de Alugueis de " + getNome() + fimDeLinha;
 		while (alugueis.hasNext()) {
 			double valorCorrente = 0.0;
 			Aluguel cada = (Aluguel) alugueis.next();
 			// determina valores para cada linha
-			switch (cada.getFita().getCódigoDePreço()) {
+			switch (cada.getFita().getCodigoDePreco()) {
 			case Fita.NORMAL:
 				valorCorrente += 2;
 				if (cada.getDiasAlugada() > 2) {
 					valorCorrente += (cada.getDiasAlugada() - 2) * 1.5;
 				}
 				break;
-			case Fita.LANÇAMENTO:
+			case Fita.LANCAMENTO:
 				valorCorrente += cada.getDiasAlugada() * 3;
 				break;
 			case Fita.INFANTIL:
@@ -47,16 +47,16 @@ public class Cliente {
 			} // switch
 				// trata de pontos de alugador frequente
 			pontosDeAlugadorFrequente++;
-			// adiciona bonus para aluguel de um lançamento por pelo menos 2
+			// adiciona bonus para aluguel de um lanï¿½amento por pelo menos 2
 			// dias
-			if (cada.getFita().getCódigoDePreço() == Fita.LANÇAMENTO && cada.getDiasAlugada() > 1) {
+			if (cada.getFita().getCodigoDePreco() == Fita.LANCAMENTO && cada.getDiasAlugada() > 1) {
 				pontosDeAlugadorFrequente++;
 			}
 			// mostra valores para este aluguel
-			resultado += "\t" + cada.getFita().getTítulo() + "\t" + valorCorrente + fimDeLinha;
+			resultado += "\t" + cada.getFita().gettitulo() + "\t" + valorCorrente + fimDeLinha;
 			valorTotal += valorCorrente;
 		} // while
-			// adiciona rodapé
+			// adiciona rodapï¿½
 		resultado += "Valor total devido: " + valorTotal + fimDeLinha;
 		resultado += "Voce acumulou " + pontosDeAlugadorFrequente + " pontos de alugador frequente";
 		return resultado;
